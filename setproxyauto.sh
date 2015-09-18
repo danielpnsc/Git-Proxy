@@ -6,8 +6,8 @@ echo -e "Option: \c "
 read  choice
 if [ $choice -eq 1 ] ; then
     echo "Set proxy"
-    studentno=test
-    password=test
+    studentno= enter username here
+    password= enter username here
     git config --global http.proxy http://$'students\'studentno:$password@proxyss.wits.ac.za:80
     git config --global https.proxy http://$'students\'studentno:$password@proxyss.wits.ac.za:80
     echo
