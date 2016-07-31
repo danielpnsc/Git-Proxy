@@ -6,8 +6,8 @@ echo -e "Option: \c "
 read  choice
 if [ $choice -eq 1 ] ; then
     echo "Set proxy"
-    username=`echo $USER`
-    read -sp "Password for $USER:" password
+    read -p "Username:" username
+    read -sp "Password for $username:" password
     echo
     git config --global http.proxy http://'students\'$username:$password@proxyss.wits.ac.za:80
     git config --global https.proxy http://'students\'$username:$password@proxyss.wits.ac.za:80
@@ -17,7 +17,6 @@ if [ $choice -eq 1 ] ; then
     export HTTP_PROXY=$http_proxy
     export HTTPS_PROXY=$http_proxy
     export NO_PROXY=$no_proxy
-    export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
     export all_proxy=$http_proxy
     echo "Proxy configured"
@@ -32,4 +31,7 @@ else
 	unset https_proxy
 	unset ftp_proxy
 	unset all_proxy
+	unset HTTP_PROXY
+    	unset HTTPS_PROXY
+    	unset NO_PROXY
 fi
