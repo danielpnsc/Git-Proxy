@@ -2,7 +2,7 @@
 ##Tools for linux terminal to cope with annoying Wits proxy.
 ### setproxy.sh
 Adds the wits proxy to your current environment.
-NOTE:It sets the git proxy globally, which means it gets saved. If you are not using this on a personal pc, I'd recommend removing the proxy when done using this script.
+NOTE:It sets the git proxy globally, which means it gets saved. If you are not using this on a personal pc, I'd recommend removing the proxy when done, using this script.
 
 ### wgetproxy.sh
 Currently needs to be revised.
