@@ -1,4 +1,4 @@
-# Git-Proxy
+# Wits-Proxy
 ##Tools for linux terminal to cope with annoying Wits proxy.
 ### setproxy.sh
 Adds the wits proxy to your current environment.
