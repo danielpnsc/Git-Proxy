@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export http_proxy=http://proxyss.wits.ac.za
+export https_proxy=http://proxyss.wits.ac.za
 
 user=`echo $USER`
 
@@ -11,3 +12,4 @@ echo
 wget --proxy-user 'students\'$user --proxy-password $passvar $1
 
 unset http_proxy
+unset https_proxy
