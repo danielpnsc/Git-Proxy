@@ -7,7 +7,28 @@ read  choice
 if [ $choice -eq 1 ] ; then
     echo "Set proxy"
     read -p "Username:" username
-    read -sp "Password for $username:" password
+    echo "Password for $username:"
+    #
+    # Password Read Source: mklement0 - Stackoverflow
+    # http://stackoverflow.com/a/22940001
+    #
+    # Begin
+    password=''
+    while IFS= read -r -s -n1 char; do
+      [[ -z $char ]] && { printf '\n'; break; } # ENTER pressed; output \n and break.
+      if [[ $char == $'\x7f' ]]; then # backspace was pressed
+        # Remove last char from output variable.
+        [[ -n $password ]] && password=${password%?}
+        # Erase '*' to the left.
+        printf '\b \b'
+      else
+        # Add typed char to output variable.
+        password+=$char
+        # Print '*' in its stead.
+        printf '*'
+      fi
+    done
+    # End
     echo
     git config --global http.proxy http://'students\'$username:$password@proxyss.wits.ac.za:80
     git config --global https.proxy http://'students\'$username:$password@proxyss.wits.ac.za:80
@@ -24,9 +45,9 @@ if [ $choice -eq 1 ] ; then
 
     echo "Proxy configured"
     echo
-    
+
 else
-    
+
         echo "Remove proxy"
 	git config --global --unset http.proxy
 	git config --global --unset https.proxy
